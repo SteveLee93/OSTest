@@ -40,7 +40,7 @@
        <rect>
         <x>10</x>
         <y>20</y>
-        <width>611</width>
+        <width>681</width>
         <height>321</height>
        </rect>
       </property>
@@ -157,7 +157,6 @@
           <property name="font">
            <font>
             <pointsize>13</pointsize>
-            <weight>75</weight>
             <bold>true</bold>
            </font>
           </property>
@@ -225,17 +224,66 @@
         <rect>
          <x>320</x>
          <y>70</y>
-         <width>279</width>
+         <width>393</width>
          <height>221</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout_5">
-        <item row="0" column="0" colspan="2">
+        <item row="1" column="2">
+         <widget class="QLabel" name="label_37">
+          <property name="text">
+           <string>파이펫</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignBottom|Qt::AlignRight|Qt::AlignTrailing</set>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="4">
+         <widget class="QLabel" name="lb_SP_TopState">
+          <property name="text">
+           <string>NeedHome</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="2">
+         <widget class="QLabel" name="lb_SP_LeftState">
+          <property name="text">
+           <string>NeedHome</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="4">
+         <widget class="QLabel" name="label_35">
+          <property name="text">
+           <string>압력용기</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="3">
+         <widget class="QLabel" name="label_31">
+          <property name="text">
+           <string>시린지</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
          <widget class="QLabel" name="label_38">
           <property name="font">
            <font>
             <pointsize>13</pointsize>
-            <weight>75</weight>
             <bold>true</bold>
            </font>
           </property>
@@ -247,67 +295,7 @@
           </property>
          </widget>
         </item>
-        <item row="3" column="2" rowspan="2">
-         <widget class="QDial" name="dial_Dir">
-          <property name="minimum">
-           <number>1</number>
-          </property>
-          <property name="maximum">
-           <number>4</number>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="3">
-         <widget class="QLabel" name="lb_SP_RightState">
-          <property name="text">
-           <string>NeedHome</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignHCenter|Qt::AlignTop</set>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="3">
-         <widget class="QLabel" name="label_33">
-          <property name="text">
-           <string>-안씀-</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="2">
-         <widget class="QLabel" name="lb_SP_TopState">
-          <property name="text">
-           <string>NeedHome</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignHCenter|Qt::AlignTop</set>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="1">
-         <widget class="QLabel" name="lb_SP_LeftState">
-          <property name="text">
-           <string>NeedHome</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignHCenter|Qt::AlignTop</set>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="2">
-         <widget class="QLabel" name="label_35">
-          <property name="text">
-           <string>압력용기</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="6" column="2">
+        <item row="7" column="3">
          <widget class="QLabel" name="lb_SP_BottomState">
           <property name="text">
            <string>NeedHome</string>
@@ -317,23 +305,43 @@
           </property>
          </widget>
         </item>
-        <item row="5" column="2">
-         <widget class="QLabel" name="label_31">
-          <property name="text">
-           <string>시린지</string>
+        <item row="4" column="3" rowspan="2">
+         <widget class="QDial" name="dial_Dir">
+          <property name="minimum">
+           <number>1</number>
           </property>
-          <property name="alignment">
-           <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+          <property name="maximum">
+           <number>3</number>
           </property>
-         </widget>
-        </item>
-        <item row="3" column="1">
-         <widget class="QLabel" name="label_37">
-          <property name="text">
-           <string>파이펫</string>
+          <property name="singleStep">
+           <number>1</number>
           </property>
-          <property name="alignment">
-           <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+          <property name="pageStep">
+           <number>10</number>
+          </property>
+          <property name="value">
+           <number>1</number>
+          </property>
+          <property name="sliderPosition">
+           <number>1</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="invertedAppearance">
+           <bool>false</bool>
+          </property>
+          <property name="invertedControls">
+           <bool>false</bool>
+          </property>
+          <property name="wrapping">
+           <bool>false</bool>
+          </property>
+          <property name="notchTarget">
+           <double>3.700000000000000</double>
+          </property>
+          <property name="notchesVisible">
+           <bool>false</bool>
           </property>
          </widget>
         </item>
@@ -463,9 +471,6 @@
        <item row="0" column="0">
         <property name="text">
          <string>Disable</string>
-        </property>
-        <property name="textAlignment">
-         <set>AlignLeading|AlignVCenter</set>
         </property>
        </item>
        <item row="0" column="1">
@@ -655,7 +660,7 @@
          <x>30</x>
          <y>20</y>
          <width>181</width>
-         <height>77</height>
+         <height>80</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout">
@@ -717,7 +722,7 @@
         <item row="3" column="1">
          <widget class="QLineEdit" name="le_SV_MaxTime">
           <property name="text">
-           <string>0</string>
+           <string>200</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -752,7 +757,7 @@
          <x>30</x>
          <y>20</y>
          <width>171</width>
-         <height>77</height>
+         <height>80</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout_2">

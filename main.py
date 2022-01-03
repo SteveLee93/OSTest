@@ -225,38 +225,14 @@ class MainWindow(QMainWindow):
         maxtime_sol = self.ui.le_SV_MaxTime.text()
         Ardu.SetMaxTime(maxtime_sol)
 
-        # 시린지 방향 B(9,12시)로 변경 ============> 방향 맞춰야함.
+        # 시린지 방향 B로 변경 파이펫 - 압력용기
         if SP.ChangeValveDir(2) == True:
             self.SP_UIChangeDirState(2)
         time.sleep(0.3)
         # 솔벨브 On > 자동 Off 됨.
         Ardu.SetOutput(4, True)
         time.sleep(2)
-
-        # # 시린지 방향 O(3,6시)로 변경 ============> 방향 맞춰야함.
-        # if SP.ChangeValveDir(4) == True:
-        #     self.SP_UIChangeDirState(4)
-        # time.sleep(0.3)
-        # # 솔벨브 On > 자동 Off 됨.
-        # Ardu.SetOutput(4, True)
-        # time.sleep(2)
-
-        # # 시린지 방향 E(12,3시)로 변경 ============> 방향 맞춰야함.
-        # if SP.ChangeValveDir(3) == True:
-        #     self.SP_UIChangeDirState(3)
-        # time.sleep(0.3)
-        # # 솔벨브 On > 자동 Off 됨.
-        # Ardu.SetOutput(4, True)
-        # time.sleep(2)
-
-        # # 시린지 방향 I(9,6시)로 변경 ============> 방향 맞춰야함.
-        # if SP.ChangeValveDir(1) == True:
-        #     self.SP_UIChangeDirState(1)
-        # time.sleep(0.3)
-        # # 솔벨브 On > 자동 Off 됨.
-        # Ardu.SetOutput(4, True)
-        # time.sleep(2)
-
+        Ardu.SetOutput(4, False)
 
     
     def SP_SetPulsePerUnit(self, pulseperunit):
@@ -297,25 +273,25 @@ class MainWindow(QMainWindow):
         time.sleep(0.5)
 
     def SP_UIChangeDirState(self, value):
-        '''Y Initial 기준- O(1) = 6,9시, B(2) = 9,12시, E(3) = 12,3시, I(4) = 3,6시 '''
-        dirstate = [] # T R B L 방향 상태 True = Open, False = Close
-        self.ui.lb_SP_TopState.setText('')
-        self.ui.lb_SP_RightState.setText('')
-        self.ui.lb_SP_BottomState.setText('')
-        self.ui.lb_SP_LeftState.setText('')
+        '''
+            Z Initial 기준- I(1) = 파이펫,시린지, 
+                            B(2) = 파이펫,압력용기, 
+                            O(3) = 시린지, 압력용기
+        '''
+        dirstate = [] # 방향 상태 True = Open, False = Close
+        self.ui.lb_SP_TopState.setText('') # 압력용기
+        self.ui.lb_SP_BottomState.setText('') # 시린지
+        self.ui.lb_SP_LeftState.setText('') # 파이펫
 
         if value == 1:
-            dirstate = [False, False, True, True]
+            dirstate = [False, True, True]
         elif value == 2:
-            dirstate = [True, False, False, True]
+            dirstate = [True, False, True]
         elif value == 3:
-            dirstate = [True, True, False, False]
-        elif value == 4:
-            dirstate = [False, True, True, False]
+            dirstate = [True, True, False]
         if dirstate[0] == True: self.ui.lb_SP_TopState.setText('Open')
-        if dirstate[1] == True: self.ui.lb_SP_RightState.setText('Open')
-        if dirstate[2] == True: self.ui.lb_SP_BottomState.setText('Open')
-        if dirstate[3] == True: self.ui.lb_SP_LeftState.setText('Open')
+        if dirstate[1] == True: self.ui.lb_SP_BottomState.setText('Open')
+        if dirstate[2] == True: self.ui.lb_SP_LeftState.setText('Open')
 
 
 

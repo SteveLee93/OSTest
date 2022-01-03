@@ -12,7 +12,7 @@ CMD_HOME = '/1Z' + CMD_END
 CMD_ROTATE_I = '/1I' + CMD_END
 CMD_ROTATE_O = '/1O' + CMD_END
 CMD_ROTATE_B = '/1B' + CMD_END
-CMD_ROTATE_E = '/1E' + CMD_END
+# CMD_ROTATE_E = '/1E' + CMD_END
 CMD_RELATIVE_DISPENCE = '/1D'
 CMD_RELATIVE_ASPIRATE = '/1P'
 CMD_APSOLUTE_MOVE = '/1A'
@@ -64,7 +64,9 @@ class Syringe():
 
     def ChangeValveDir(self, value):
         '''
-            Y Initial 기준- I(1) = 6,9시, B(2) = 9,12시, E(3) = 12,3시, O(4) = 3,6시 
+            Z Initial 기준- I(1) = 파이펫,시린지, 
+                            B(2) = 파이펫,압력용기, 
+                            O(3) = 시린지, 압력용기
         '''
         if(self.IsConnected() != True): return False
 
@@ -75,9 +77,6 @@ class Syringe():
             direction = 'B'
             self.Send(CMD_ROTATE_B)
         elif value == 3:
-            direction = 'E'
-            self.Send(CMD_ROTATE_E)
-        elif value == 4:
             direction = 'O'
             self.Send(CMD_ROTATE_O)
         self.Log(f"ChangeValveDir direction {direction} Done")
