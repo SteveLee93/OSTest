@@ -11,6 +11,7 @@ from PySide6.QtGui import QIntValidator, QCloseEvent
 from ui import Ui_MainWindow
 from syringeModule import Syringe
 from arduino import Arduino
+from qt_material import apply_stylesheet
 
 SP = Syringe()
 Ardu = Arduino()
@@ -297,9 +298,29 @@ class MainWindow(QMainWindow):
 
 
 if __name__ == "__main__":
-    app = QApplication()
+    app = QApplication(sys.argv)
     window = MainWindow()
+    apply_stylesheet(app, theme='dark_blue.xml')
     window.show()
     sys.exit(app.exec())
 
 
+# ['dark_amber.xml',
+#  'dark_blue.xml',
+#  'dark_cyan.xml',
+#  'dark_lightgreen.xml',
+#  'dark_pink.xml',
+#  'dark_purple.xml',
+#  'dark_red.xml',
+#  'dark_teal.xml',
+#  'dark_yellow.xml',
+#  'light_amber.xml',
+#  'light_blue.xml',
+#  'light_cyan.xml',
+#  'light_cyan_500.xml',
+#  'light_lightgreen.xml',
+#  'light_pink.xml',
+#  'light_purple.xml',
+#  'light_red.xml',
+#  'light_teal.xml',
+#  'light_yellow.xml']

@@ -24,7 +24,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(762, 851)
+        MainWindow.resize(776, 851)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.tabWidget = QTabWidget(self.centralwidget)
@@ -240,7 +240,7 @@ class Ui_MainWindow(object):
 
         self.groupBox_4 = QGroupBox(self.tab_2)
         self.groupBox_4.setObjectName(u"groupBox_4")
-        self.groupBox_4.setGeometry(QRect(10, 340, 441, 351))
+        self.groupBox_4.setGeometry(QRect(10, 340, 481, 351))
         self.table_Ardu_IO = QTableWidget(self.groupBox_4)
         if (self.table_Ardu_IO.columnCount() < 4):
             self.table_Ardu_IO.setColumnCount(4)
@@ -311,7 +311,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem31 = QTableWidgetItem()
         self.table_Ardu_IO.setItem(5, 1, __qtablewidgetitem31)
         self.table_Ardu_IO.setObjectName(u"table_Ardu_IO")
-        self.table_Ardu_IO.setGeometry(QRect(10, 110, 421, 211))
+        self.table_Ardu_IO.setGeometry(QRect(0, 110, 481, 231))
         self.label_5 = QLabel(self.groupBox_4)
         self.label_5.setObjectName(u"label_5")
         self.label_5.setGeometry(QRect(10, 90, 56, 12))
@@ -350,7 +350,7 @@ class Ui_MainWindow(object):
 
         self.groupBox = QGroupBox(self.tab_2)
         self.groupBox.setObjectName(u"groupBox")
-        self.groupBox.setGeometry(QRect(470, 340, 221, 111))
+        self.groupBox.setGeometry(QRect(500, 340, 221, 111))
         self.gridLayoutWidget = QWidget(self.groupBox)
         self.gridLayoutWidget.setObjectName(u"gridLayoutWidget")
         self.gridLayoutWidget.setGeometry(QRect(30, 20, 181, 80))
@@ -407,7 +407,7 @@ class Ui_MainWindow(object):
 
         self.groupBox_2 = QGroupBox(self.tab_2)
         self.groupBox_2.setObjectName(u"groupBox_2")
-        self.groupBox_2.setGeometry(QRect(470, 470, 221, 111))
+        self.groupBox_2.setGeometry(QRect(500, 470, 221, 111))
         self.gridLayoutWidget_2 = QWidget(self.groupBox_2)
         self.gridLayoutWidget_2.setObjectName(u"gridLayoutWidget_2")
         self.gridLayoutWidget_2.setGeometry(QRect(30, 20, 171, 80))
@@ -449,26 +449,26 @@ class Ui_MainWindow(object):
 
         self.btn_Save = QPushButton(self.tab_2)
         self.btn_Save.setObjectName(u"btn_Save")
-        self.btn_Save.setGeometry(QRect(490, 640, 75, 23))
+        self.btn_Save.setGeometry(QRect(520, 640, 75, 23))
         self.btn_Load = QPushButton(self.tab_2)
         self.btn_Load.setObjectName(u"btn_Load")
-        self.btn_Load.setGeometry(QRect(590, 640, 75, 23))
+        self.btn_Load.setGeometry(QRect(620, 640, 75, 23))
         self.gridLayoutWidget_3 = QWidget(self.tab_2)
         self.gridLayoutWidget_3.setObjectName(u"gridLayoutWidget_3")
-        self.gridLayoutWidget_3.setGeometry(QRect(500, 580, 171, 31))
+        self.gridLayoutWidget_3.setGeometry(QRect(530, 580, 171, 46))
         self.gridLayout_3 = QGridLayout(self.gridLayoutWidget_3)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.gridLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.label_11 = QLabel(self.gridLayoutWidget_3)
-        self.label_11.setObjectName(u"label_11")
-
-        self.gridLayout_3.addWidget(self.label_11, 0, 0, 1, 1)
-
         self.le_Ardu_IONum = QLineEdit(self.gridLayoutWidget_3)
         self.le_Ardu_IONum.setObjectName(u"le_Ardu_IONum")
         self.le_Ardu_IONum.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
         self.gridLayout_3.addWidget(self.le_Ardu_IONum, 0, 1, 1, 1)
+
+        self.label_11 = QLabel(self.gridLayoutWidget_3)
+        self.label_11.setObjectName(u"label_11")
+
+        self.gridLayout_3.addWidget(self.label_11, 0, 0, 1, 1)
 
         self.tabWidget.addTab(self.tab_2, "")
         MainWindow.setCentralWidget(self.centralwidget)
@@ -484,7 +484,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"Main", None))
-        self.groupBox_3.setTitle(QCoreApplication.translate("MainWindow", u"\uc2dc\ub9b0\uc9c0\ud38c\ud504", None))
+        self.groupBox_3.setTitle("")
         self.btn_SV_Dispense.setText(QCoreApplication.translate("MainWindow", u"\uc194\ubca8\ube0c \ubd84\uc8fc", None))
         self.btn_SP_Disp.setText(QCoreApplication.translate("MainWindow", u"\ubd84\uc8fc", None))
         self.lb_SP_CurPos.setText(QCoreApplication.translate("MainWindow", u"0", None))
@@ -511,7 +511,7 @@ class Ui_MainWindow(object):
         self.lb_SP_State.setText(QCoreApplication.translate("MainWindow", u"Disconnect", None))
         self.label_41.setText(QCoreApplication.translate("MainWindow", u"\uc5f0\uacb0 \uc0c1\ud0dc", None))
         self.btn_SP_Connect.setText(QCoreApplication.translate("MainWindow", u"\uc5f0\uacb0", None))
-        self.groupBox_4.setTitle(QCoreApplication.translate("MainWindow", u"\uc544\ub450\uc774\ub178", None))
+        self.groupBox_4.setTitle("")
         ___qtablewidgetitem = self.table_Ardu_IO.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"Type", None));
         ___qtablewidgetitem1 = self.table_Ardu_IO.horizontalHeaderItem(1)
@@ -582,7 +582,7 @@ class Ui_MainWindow(object):
         self.lb_Ardu_State.setText(QCoreApplication.translate("MainWindow", u"Disconnect", None))
         self.label_44.setText(QCoreApplication.translate("MainWindow", u"\uc5f0\uacb0 \uc0c1\ud0dc", None))
         self.btn_Ardu_Connect.setText(QCoreApplication.translate("MainWindow", u"\uc5f0\uacb0", None))
-        self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"\uc194\ubca8\ube0c", None))
+        self.groupBox.setTitle("")
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"ms", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"ms", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"24V \uc720\uc9c0 \uc2dc\uac04", None))
@@ -592,7 +592,7 @@ class Ui_MainWindow(object):
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"Max \uc2dc\uac04", None))
         self.le_SV_MaxTime.setText(QCoreApplication.translate("MainWindow", u"200", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"ms", None))
-        self.groupBox_2.setTitle(QCoreApplication.translate("MainWindow", u"\uc2dc\ub9b0\uc9c0 Setting", None))
+        self.groupBox_2.setTitle("")
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"Pulse per Unit", None))
         self.le_S_PulseperUnit.setText(QCoreApplication.translate("MainWindow", u"1", None))
         self.le_S_AspiSpeed.setText(QCoreApplication.translate("MainWindow", u"1", None))
@@ -601,8 +601,8 @@ class Ui_MainWindow(object):
         self.le_S_DispSpeed.setText(QCoreApplication.translate("MainWindow", u"1", None))
         self.btn_Save.setText(QCoreApplication.translate("MainWindow", u"Save", None))
         self.btn_Load.setText(QCoreApplication.translate("MainWindow", u"Load", None))
-        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Arduino IO \uac2f\uc218", None))
         self.le_Ardu_IONum.setText(QCoreApplication.translate("MainWindow", u"6", None))
+        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Arduino IO \uac2f\uc218", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"maintenance", None))
     # retranslateUi
 
