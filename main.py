@@ -110,7 +110,8 @@ class MainWindow(QMainWindow):
                             pumpstate = Ardu.GetIOState(3).replace('\r\n','')
                             if pumpstate == '1':
                                 Ardu.SetOutput(3, True) # 펌프 On
-                                time.sleep(0.5)
+                                time.sleep(0.2)
+                                Ardu.SetOutput(3, False) # 펌프 Off
 
                     if result == '0': result = 'On'
                     elif result == '1': result = 'Off'
@@ -124,6 +125,8 @@ class MainWindow(QMainWindow):
         Ardu.SetMaxTime(maxtime_sol)
         pulseperunit = int(self.ui.le_S_PulseperUnit.text())
         self.SP_SetPulsePerUnit(pulseperunit)
+        velocity = int(self.ui.le_S_AspiSpeed.text())
+        SP.SetVelocity(velocity)
         pass
 
     def LoadSetting(self):
@@ -180,7 +183,8 @@ class MainWindow(QMainWindow):
         time.sleep(0.5)
 
         # 솔벨브 On > 자동 Off 됨.
-        Ardu.SetOutput(4, True)
+        # Ardu.SetOutput(4, True)
+        Ardu.SetOutput(5, False)
 
         # 시린지 흡입
         ul = int(self.ui.le_SP_Volume.text())
@@ -197,8 +201,9 @@ class MainWindow(QMainWindow):
         time.sleep(0.5)
 
         # 솔벨브 On > 자동 Off 됨.
-        Ardu.SetOutput(4, True)
-
+        # Ardu.SetOutput(4, True)
+        Ardu.SetOutput(5, False)
+        
         # 시린지 분주
         ul = int(self.ui.le_SP_Volume.text()) * -1
         SP.ReMoveSyringe(ul)
@@ -214,7 +219,8 @@ class MainWindow(QMainWindow):
         time.sleep(0.5)
 
         # 솔벨브 On > 자동 Off 됨.
-        Ardu.SetOutput(4, True)
+        # Ardu.SetOutput(4, True)
+        Ardu.SetOutput(5, False)
 
         # 시린지 흡입 or 분주
         target_ul = int(self.ui.le_SP_TargetPos.text())
@@ -227,13 +233,14 @@ class MainWindow(QMainWindow):
         Ardu.SetMaxTime(maxtime_sol)
 
         # 시린지 방향 B로 변경 파이펫 - 압력용기
-        if SP.ChangeValveDir(2) == True:
-            self.SP_UIChangeDirState(2)
-        time.sleep(0.3)
+        value = self.ui.dial_Dir.value()
+        if value != 2:
+            if SP.ChangeValveDir(2) == True:
+                self.SP_UIChangeDirState(2)
         # 솔벨브 On > 자동 Off 됨.
-        Ardu.SetOutput(4, True)
-        time.sleep(2)
-        Ardu.SetOutput(4, False)
+        # Ardu.SetOutput(4, True)
+        Ardu.SetOutput(5, False)
+        
 
     
     def SP_SetPulsePerUnit(self, pulseperunit):
@@ -257,7 +264,8 @@ class MainWindow(QMainWindow):
         time.sleep(0.5)
 
         # 솔벨브 On
-        Ardu.SetOutput(4, True)
+        # Ardu.SetOutput(4, True)
+        Ardu.SetOutput(5, False)
 
         # 시린지 Home
         SP.Home()

@@ -17,7 +17,8 @@ Command
 int PressureInputNum = 2;
 int PumpOutputNum = 3;
 int SolOutputNum = 4;
-int SolMaxtime = 1000; // micro sec
+int reValveOutputNum = 5;    
+int SolMaxtime = 200; // micro sec
 // #define SERIAL_MONITOR
 #define BUF_COUNT 50
 String buffer;
@@ -30,6 +31,7 @@ void setup()
   pinMode(PressureInputNum, INPUT_PULLUP);
   pinMode(PumpOutputNum, OUTPUT);
   pinMode(SolOutputNum, OUTPUT);
+  pinMode(reValveOutputNum, OUTPUT);
   initializeSerial();
   //Serial.println("setup done.");
   digitalWrite(PumpOutputNum, 1);
@@ -110,13 +112,13 @@ void processCommand()
             #endif
 
             pinMode(doIndex, OUTPUT);
-            if(value == 0)
+            if(value == 1)
             {
-              value = 1;
+              value = 0;
             }
             else
             {
-              value = 0;
+              value = 1;
             }
             digitalWrite(doIndex, value);
             Serial.println(value);
@@ -126,6 +128,26 @@ void processCommand()
               delay(SolMaxtime);
               digitalWrite(doIndex, value);
             }
+            
+        if(doIndex == reValveOutputNum && value == 1)
+            {
+              value = 0;
+              {
+               if(SolMaxtime == 2000)
+               {
+                delay(SolMaxtime);   //revalveoutputNum plus . lhj
+               }
+               else
+               {
+                delayMicroseconds(SolMaxtime);   //revalveoutputNum plus . lhj
+               }
+               
+               digitalWrite(doIndex, value);
+              }
+    
+            }
+            
+            
         }
         else if (command.substring(0, 3) == "di ")
         {

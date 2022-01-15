@@ -17,6 +17,7 @@ CMD_RELATIVE_DISPENCE = '/1D'
 CMD_RELATIVE_ASPIRATE = '/1P'
 CMD_APSOLUTE_MOVE = '/1A'
 CMD_GET_CURRENTPOS = '/1?\r'
+CMD_SET_VELOCITY = '/1SV'
 CMD_StartCharacter = b'/'
 CMD_ETX = b'\x03'
 
@@ -61,7 +62,13 @@ class Syringe():
     def Home(self):
         if(self.IsConnected() != True): return
         self.Send(CMD_HOME)
-
+    
+    def SetVelocity(self, velocity):
+        if(self.IsConnected() != True): return
+        self.Send(CMD_SET_VELOCITY + str(velocity) + CMD_END)
+        # self.Send(CMD_HOME)
+    
+    
     def ChangeValveDir(self, value):
         '''
             Z Initial 기준- I(1) = 파이펫,시린지, 

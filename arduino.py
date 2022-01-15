@@ -16,7 +16,7 @@ class Arduino():
         try:
             self.ser = serial.Serial(comport,9600)
             self.Log(f"Ardu {comport} Connected!!")
-        except:
+        except: 
             self.Log(f"Ardu {comport} Connect Fail!!")
     
     def IsConnected(self):
