@@ -24,7 +24,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(776, 851)
+        MainWindow.resize(1005, 851)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.tabWidget = QTabWidget(self.centralwidget)
@@ -37,26 +37,59 @@ class Ui_MainWindow(object):
         self.tab_2.setObjectName(u"tab_2")
         self.groupBox_3 = QGroupBox(self.tab_2)
         self.groupBox_3.setObjectName(u"groupBox_3")
-        self.groupBox_3.setGeometry(QRect(10, 20, 681, 321))
+        self.groupBox_3.setGeometry(QRect(10, 20, 901, 331))
         self.gridLayoutWidget_4 = QWidget(self.groupBox_3)
         self.gridLayoutWidget_4.setObjectName(u"gridLayoutWidget_4")
-        self.gridLayoutWidget_4.setGeometry(QRect(10, 70, 294, 241))
+        self.gridLayoutWidget_4.setGeometry(QRect(10, 70, 451, 255))
         self.gridLayout_4 = QGridLayout(self.gridLayoutWidget_4)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
         self.gridLayout_4.setContentsMargins(0, 0, 0, 0)
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.label_26 = QLabel(self.gridLayoutWidget_4)
+        self.label_26.setObjectName(u"label_26")
+        self.label_26.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.gridLayout_4.addItem(self.verticalSpacer, 7, 3, 1, 1)
+        self.gridLayout_4.addWidget(self.label_26, 1, 2, 1, 1)
+
+        self.label_29 = QLabel(self.gridLayoutWidget_4)
+        self.label_29.setObjectName(u"label_29")
+        font = QFont()
+        font.setPointSize(12)
+        self.label_29.setFont(font)
+
+        self.gridLayout_4.addWidget(self.label_29, 1, 4, 1, 1)
+
+        self.label_23 = QLabel(self.gridLayoutWidget_4)
+        self.label_23.setObjectName(u"label_23")
+        self.label_23.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_4.addWidget(self.label_23, 3, 2, 1, 1)
+
+        self.le_SP_Volume = QLineEdit(self.gridLayoutWidget_4)
+        self.le_SP_Volume.setObjectName(u"le_SP_Volume")
+        self.le_SP_Volume.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_4.addWidget(self.le_SP_Volume, 3, 3, 1, 1)
+
+        self.label_24 = QLabel(self.gridLayoutWidget_4)
+        self.label_24.setObjectName(u"label_24")
+        self.label_24.setFont(font)
+
+        self.gridLayout_4.addWidget(self.label_24, 5, 4, 1, 1)
+
+        self.btn_SP_Disp = QPushButton(self.gridLayoutWidget_4)
+        self.btn_SP_Disp.setObjectName(u"btn_SP_Disp")
+
+        self.gridLayout_4.addWidget(self.btn_SP_Disp, 4, 3, 1, 1)
 
         self.btn_SV_Dispense = QPushButton(self.gridLayoutWidget_4)
         self.btn_SV_Dispense.setObjectName(u"btn_SV_Dispense")
 
         self.gridLayout_4.addWidget(self.btn_SV_Dispense, 8, 3, 1, 1)
 
-        self.btn_SP_Disp = QPushButton(self.gridLayoutWidget_4)
-        self.btn_SP_Disp.setObjectName(u"btn_SP_Disp")
+        self.btn_SP_Move = QPushButton(self.gridLayoutWidget_4)
+        self.btn_SP_Move.setObjectName(u"btn_SP_Move")
 
-        self.gridLayout_4.addWidget(self.btn_SP_Disp, 4, 3, 1, 1)
+        self.gridLayout_4.addWidget(self.btn_SP_Move, 6, 3, 1, 1)
 
         self.lb_SP_CurPos = QLabel(self.gridLayoutWidget_4)
         self.lb_SP_CurPos.setObjectName(u"lb_SP_CurPos")
@@ -64,10 +97,18 @@ class Ui_MainWindow(object):
 
         self.gridLayout_4.addWidget(self.lb_SP_CurPos, 1, 3, 1, 1)
 
+        self.btn_SP_DispOnly = QPushButton(self.gridLayoutWidget_4)
+        self.btn_SP_DispOnly.setObjectName(u"btn_SP_DispOnly")
+
+        self.gridLayout_4.addWidget(self.btn_SP_DispOnly, 4, 4, 1, 1)
+
+        self.btn_SP_AspiOnly = QPushButton(self.gridLayoutWidget_4)
+        self.btn_SP_AspiOnly.setObjectName(u"btn_SP_AspiOnly")
+
+        self.gridLayout_4.addWidget(self.btn_SP_AspiOnly, 2, 4, 1, 1)
+
         self.label_25 = QLabel(self.gridLayoutWidget_4)
         self.label_25.setObjectName(u"label_25")
-        font = QFont()
-        font.setPointSize(12)
         self.label_25.setFont(font)
 
         self.gridLayout_4.addWidget(self.label_25, 3, 4, 1, 1)
@@ -78,27 +119,16 @@ class Ui_MainWindow(object):
 
         self.gridLayout_4.addWidget(self.label_27, 5, 2, 1, 1)
 
-        self.btn_SP_Move = QPushButton(self.gridLayoutWidget_4)
-        self.btn_SP_Move.setObjectName(u"btn_SP_Move")
-
-        self.gridLayout_4.addWidget(self.btn_SP_Move, 6, 3, 1, 1)
-
-        self.label_29 = QLabel(self.gridLayoutWidget_4)
-        self.label_29.setObjectName(u"label_29")
-        self.label_29.setFont(font)
-
-        self.gridLayout_4.addWidget(self.label_29, 1, 4, 1, 1)
-
-        self.btn_SP_Home = QPushButton(self.gridLayoutWidget_4)
-        self.btn_SP_Home.setObjectName(u"btn_SP_Home")
-
-        self.gridLayout_4.addWidget(self.btn_SP_Home, 1, 0, 1, 2)
-
         self.le_SP_TargetPos = QLineEdit(self.gridLayoutWidget_4)
         self.le_SP_TargetPos.setObjectName(u"le_SP_TargetPos")
         self.le_SP_TargetPos.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
         self.gridLayout_4.addWidget(self.le_SP_TargetPos, 5, 3, 1, 1)
+
+        self.btn_SP_Home = QPushButton(self.gridLayoutWidget_4)
+        self.btn_SP_Home.setObjectName(u"btn_SP_Home")
+
+        self.gridLayout_4.addWidget(self.btn_SP_Home, 1, 0, 1, 2)
 
         self.label_22 = QLabel(self.gridLayoutWidget_4)
         self.label_22.setObjectName(u"label_22")
@@ -115,33 +145,14 @@ class Ui_MainWindow(object):
 
         self.gridLayout_4.addWidget(self.btn_SP_Aspi, 2, 3, 1, 1)
 
-        self.le_SP_Volume = QLineEdit(self.gridLayoutWidget_4)
-        self.le_SP_Volume.setObjectName(u"le_SP_Volume")
-        self.le_SP_Volume.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.gridLayout_4.addWidget(self.le_SP_Volume, 3, 3, 1, 1)
+        self.gridLayout_4.addItem(self.verticalSpacer, 7, 3, 1, 1)
 
-        self.label_23 = QLabel(self.gridLayoutWidget_4)
-        self.label_23.setObjectName(u"label_23")
-        self.label_23.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.gridLayout_4.addWidget(self.label_23, 3, 2, 1, 1)
-
-        self.label_24 = QLabel(self.gridLayoutWidget_4)
-        self.label_24.setObjectName(u"label_24")
-        self.label_24.setFont(font)
-
-        self.gridLayout_4.addWidget(self.label_24, 5, 4, 1, 1)
-
-        self.label_26 = QLabel(self.gridLayoutWidget_4)
-        self.label_26.setObjectName(u"label_26")
-        self.label_26.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.gridLayout_4.addWidget(self.label_26, 1, 2, 1, 1)
-
+        self.gridLayout_4.setColumnStretch(4, 30)
         self.gridLayoutWidget_5 = QWidget(self.groupBox_3)
         self.gridLayoutWidget_5.setObjectName(u"gridLayoutWidget_5")
-        self.gridLayoutWidget_5.setGeometry(QRect(320, 70, 393, 221))
+        self.gridLayoutWidget_5.setGeometry(QRect(490, 70, 393, 221))
         self.gridLayout_5 = QGridLayout(self.gridLayoutWidget_5)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.gridLayout_5.setContentsMargins(0, 0, 0, 0)
@@ -350,10 +361,10 @@ class Ui_MainWindow(object):
 
         self.groupBox = QGroupBox(self.tab_2)
         self.groupBox.setObjectName(u"groupBox")
-        self.groupBox.setGeometry(QRect(500, 340, 221, 111))
+        self.groupBox.setGeometry(QRect(500, 340, 331, 111))
         self.gridLayoutWidget = QWidget(self.groupBox)
         self.gridLayoutWidget.setObjectName(u"gridLayoutWidget")
-        self.gridLayoutWidget.setGeometry(QRect(30, 20, 181, 80))
+        self.gridLayoutWidget.setGeometry(QRect(30, 20, 291, 80))
         self.gridLayout = QGridLayout(self.gridLayoutWidget)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
@@ -407,10 +418,10 @@ class Ui_MainWindow(object):
 
         self.groupBox_2 = QGroupBox(self.tab_2)
         self.groupBox_2.setObjectName(u"groupBox_2")
-        self.groupBox_2.setGeometry(QRect(500, 470, 221, 111))
+        self.groupBox_2.setGeometry(QRect(500, 470, 321, 111))
         self.gridLayoutWidget_2 = QWidget(self.groupBox_2)
         self.gridLayoutWidget_2.setObjectName(u"gridLayoutWidget_2")
-        self.gridLayoutWidget_2.setGeometry(QRect(30, 20, 171, 80))
+        self.gridLayoutWidget_2.setGeometry(QRect(30, 20, 281, 80))
         self.gridLayout_2 = QGridLayout(self.gridLayoutWidget_2)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
@@ -485,21 +496,23 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"Main", None))
         self.groupBox_3.setTitle("")
-        self.btn_SV_Dispense.setText(QCoreApplication.translate("MainWindow", u"\uc194\ubca8\ube0c \ubd84\uc8fc", None))
+        self.label_26.setText(QCoreApplication.translate("MainWindow", u"\ud604\uc7ac  \uac12", None))
+        self.label_29.setText(QCoreApplication.translate("MainWindow", u"ul", None))
+        self.label_23.setText(QCoreApplication.translate("MainWindow", u"\ud761\uc785/\ubd84\uc8fc \ub7c9", None))
+        self.le_SP_Volume.setText(QCoreApplication.translate("MainWindow", u"0", None))
+        self.label_24.setText(QCoreApplication.translate("MainWindow", u"ul", None))
         self.btn_SP_Disp.setText(QCoreApplication.translate("MainWindow", u"\ubd84\uc8fc", None))
+        self.btn_SV_Dispense.setText(QCoreApplication.translate("MainWindow", u"\uc194\ubca8\ube0c \ubd84\uc8fc", None))
+        self.btn_SP_Move.setText(QCoreApplication.translate("MainWindow", u"\uc774\ub3d9", None))
         self.lb_SP_CurPos.setText(QCoreApplication.translate("MainWindow", u"0", None))
+        self.btn_SP_DispOnly.setText(QCoreApplication.translate("MainWindow", u"\uc2dc\ub9b0\uc9c0\ub9cc \ubd84\uc8fc", None))
+        self.btn_SP_AspiOnly.setText(QCoreApplication.translate("MainWindow", u"\uc2dc\ub9b0\uc9c0\ub9cc \ud761\uc785", None))
         self.label_25.setText(QCoreApplication.translate("MainWindow", u"ul", None))
         self.label_27.setText(QCoreApplication.translate("MainWindow", u"\ubaa9\ud45c \uac12", None))
-        self.btn_SP_Move.setText(QCoreApplication.translate("MainWindow", u"\uc774\ub3d9", None))
-        self.label_29.setText(QCoreApplication.translate("MainWindow", u"ul", None))
-        self.btn_SP_Home.setText(QCoreApplication.translate("MainWindow", u"\ucd08\uae30\ud654", None))
         self.le_SP_TargetPos.setText(QCoreApplication.translate("MainWindow", u"0", None))
+        self.btn_SP_Home.setText(QCoreApplication.translate("MainWindow", u"\ucd08\uae30\ud654", None))
         self.label_22.setText(QCoreApplication.translate("MainWindow", u"\uc2dc\ub9b0\uc9c0", None))
         self.btn_SP_Aspi.setText(QCoreApplication.translate("MainWindow", u"\ud761\uc785", None))
-        self.le_SP_Volume.setText(QCoreApplication.translate("MainWindow", u"0", None))
-        self.label_23.setText(QCoreApplication.translate("MainWindow", u"\ud761\uc785/\ubd84\uc8fc \ub7c9", None))
-        self.label_24.setText(QCoreApplication.translate("MainWindow", u"ul", None))
-        self.label_26.setText(QCoreApplication.translate("MainWindow", u"\ud604\uc7ac  \uac12", None))
         self.label_37.setText(QCoreApplication.translate("MainWindow", u"\ud30c\uc774\ud3ab", None))
         self.lb_SP_TopState.setText(QCoreApplication.translate("MainWindow", u"NeedHome", None))
         self.lb_SP_LeftState.setText(QCoreApplication.translate("MainWindow", u"NeedHome", None))
@@ -585,24 +598,24 @@ class Ui_MainWindow(object):
         self.groupBox.setTitle("")
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"ms", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"ms", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"24V \uc720\uc9c0 \uc2dc\uac04", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"8V \uc720\uc9c0 \uc2dc\uac04", None))
-        self.le_SV_24VKeepTime.setText(QCoreApplication.translate("MainWindow", u"0", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"\uc194\ubca8\ube0c \ubd84\uc8fc O.T", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"8V \uc720\uc9c0 \uc2dc\uac04_\uc548\uc500", None))
+        self.le_SV_24VKeepTime.setText(QCoreApplication.translate("MainWindow", u"350", None))
         self.le_SV_8VKeepTime.setText(QCoreApplication.translate("MainWindow", u"0", None))
-        self.label_7.setText(QCoreApplication.translate("MainWindow", u"Max \uc2dc\uac04", None))
-        self.le_SV_MaxTime.setText(QCoreApplication.translate("MainWindow", u"200", None))
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"\uc2dc\ub9b0\uc9c0 \ud761\uc785\uc2dc \uc194\ubca8\ube0c O.T", None))
+        self.le_SV_MaxTime.setText(QCoreApplication.translate("MainWindow", u"2000", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"ms", None))
         self.groupBox_2.setTitle("")
-        self.label_8.setText(QCoreApplication.translate("MainWindow", u"Pulse per Unit", None))
+        self.label_8.setText(QCoreApplication.translate("MainWindow", u"Pulse per Unit_\uc548\uc500", None))
         self.le_S_PulseperUnit.setText(QCoreApplication.translate("MainWindow", u"1", None))
-        self.le_S_AspiSpeed.setText(QCoreApplication.translate("MainWindow", u"1", None))
-        self.label_9.setText(QCoreApplication.translate("MainWindow", u"\ud761\uc785 \uc18d\ub3c4(ul/s)", None))
-        self.label_10.setText(QCoreApplication.translate("MainWindow", u"\ubd84\uc8fc \uc18d\ub3c4(ul/s)", None))
+        self.le_S_AspiSpeed.setText(QCoreApplication.translate("MainWindow", u"3000", None))
+        self.label_9.setText(QCoreApplication.translate("MainWindow", u"\uc2dc\ub9b0\uc9c0 \uc18d\ub3c4", None))
+        self.label_10.setText(QCoreApplication.translate("MainWindow", u"\ubd84\uc8fc \uc18d\ub3c4(ul/s)_\uc548\uc500", None))
         self.le_S_DispSpeed.setText(QCoreApplication.translate("MainWindow", u"1", None))
         self.btn_Save.setText(QCoreApplication.translate("MainWindow", u"Save", None))
         self.btn_Load.setText(QCoreApplication.translate("MainWindow", u"Load", None))
         self.le_Ardu_IONum.setText(QCoreApplication.translate("MainWindow", u"6", None))
-        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Arduino IO \uac2f\uc218", None))
+        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Arduino IO \uac2f\uc218_\uc548\uc500", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"maintenance", None))
     # retranslateUi
 

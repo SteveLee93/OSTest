@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>776</width>
+    <width>1005</width>
     <height>851</height>
    </rect>
   </property>
@@ -40,8 +40,8 @@
        <rect>
         <x>10</x>
         <y>20</y>
-        <width>681</width>
-        <height>321</height>
+        <width>901</width>
+        <height>331</height>
        </rect>
       </property>
       <property name="title">
@@ -52,28 +52,62 @@
         <rect>
          <x>10</x>
          <y>70</y>
-         <width>294</width>
-         <height>241</height>
+         <width>451</width>
+         <height>255</height>
         </rect>
        </property>
-       <layout class="QGridLayout" name="gridLayout_4">
-        <item row="7" column="3">
-         <spacer name="verticalSpacer">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="8" column="3">
-         <widget class="QPushButton" name="btn_SV_Dispense">
+       <layout class="QGridLayout" name="gridLayout_4" columnstretch="0,0,0,0,30">
+        <item row="1" column="2">
+         <widget class="QLabel" name="label_26">
           <property name="text">
-           <string>솔벨브 분주</string>
+           <string>현재  값</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="4">
+         <widget class="QLabel" name="label_29">
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>ul</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="2">
+         <widget class="QLabel" name="label_23">
+          <property name="text">
+           <string>흡입/분주 량</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="3">
+         <widget class="QLineEdit" name="le_SP_Volume">
+          <property name="text">
+           <string>0</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="4">
+         <widget class="QLabel" name="label_24">
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>ul</string>
           </property>
          </widget>
         </item>
@@ -84,6 +118,20 @@
           </property>
          </widget>
         </item>
+        <item row="8" column="3">
+         <widget class="QPushButton" name="btn_SV_Dispense">
+          <property name="text">
+           <string>솔벨브 분주</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="3">
+         <widget class="QPushButton" name="btn_SP_Move">
+          <property name="text">
+           <string>이동</string>
+          </property>
+         </widget>
+        </item>
         <item row="1" column="3">
          <widget class="QLabel" name="lb_SP_CurPos">
           <property name="text">
@@ -91,6 +139,20 @@
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="4">
+         <widget class="QPushButton" name="btn_SP_DispOnly">
+          <property name="text">
+           <string>시린지만 분주</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="4">
+         <widget class="QPushButton" name="btn_SP_AspiOnly">
+          <property name="text">
+           <string>시린지만 흡입</string>
           </property>
          </widget>
         </item>
@@ -116,32 +178,6 @@
           </property>
          </widget>
         </item>
-        <item row="6" column="3">
-         <widget class="QPushButton" name="btn_SP_Move">
-          <property name="text">
-           <string>이동</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="4">
-         <widget class="QLabel" name="label_29">
-          <property name="font">
-           <font>
-            <pointsize>12</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>ul</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0" colspan="2">
-         <widget class="QPushButton" name="btn_SP_Home">
-          <property name="text">
-           <string>초기화</string>
-          </property>
-         </widget>
-        </item>
         <item row="5" column="3">
          <widget class="QLineEdit" name="le_SP_TargetPos">
           <property name="text">
@@ -152,11 +188,19 @@
           </property>
          </widget>
         </item>
+        <item row="1" column="0" colspan="2">
+         <widget class="QPushButton" name="btn_SP_Home">
+          <property name="text">
+           <string>초기화</string>
+          </property>
+         </widget>
+        </item>
         <item row="0" column="0" colspan="2">
          <widget class="QLabel" name="label_22">
           <property name="font">
            <font>
             <pointsize>13</pointsize>
+            <weight>75</weight>
             <bold>true</bold>
            </font>
           </property>
@@ -175,54 +219,25 @@
           </property>
          </widget>
         </item>
-        <item row="3" column="3">
-         <widget class="QLineEdit" name="le_SP_Volume">
-          <property name="text">
-           <string>0</string>
+        <item row="7" column="3">
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
           </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
           </property>
-         </widget>
-        </item>
-        <item row="3" column="2">
-         <widget class="QLabel" name="label_23">
-          <property name="text">
-           <string>흡입/분주 량</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="4">
-         <widget class="QLabel" name="label_24">
-          <property name="font">
-           <font>
-            <pointsize>12</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>ul</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="2">
-         <widget class="QLabel" name="label_26">
-          <property name="text">
-           <string>현재  값</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-         </widget>
+         </spacer>
         </item>
        </layout>
       </widget>
       <widget class="QWidget" name="gridLayoutWidget_5">
        <property name="geometry">
         <rect>
-         <x>320</x>
+         <x>490</x>
          <y>70</y>
          <width>393</width>
          <height>221</height>
@@ -284,6 +299,7 @@
           <property name="font">
            <font>
             <pointsize>13</pointsize>
+            <weight>75</weight>
             <bold>true</bold>
            </font>
           </property>
@@ -647,7 +663,7 @@
        <rect>
         <x>500</x>
         <y>340</y>
-        <width>221</width>
+        <width>331</width>
         <height>111</height>
        </rect>
       </property>
@@ -659,7 +675,7 @@
         <rect>
          <x>30</x>
          <y>20</y>
-         <width>181</width>
+         <width>291</width>
          <height>80</height>
         </rect>
        </property>
@@ -681,21 +697,21 @@
         <item row="1" column="0">
          <widget class="QLabel" name="label">
           <property name="text">
-           <string>24V 유지 시간</string>
+           <string>솔벨브 분주 O.T</string>
           </property>
          </widget>
         </item>
         <item row="2" column="0">
          <widget class="QLabel" name="label_3">
           <property name="text">
-           <string>8V 유지 시간</string>
+           <string>8V 유지 시간_안씀</string>
           </property>
          </widget>
         </item>
         <item row="1" column="1">
          <widget class="QLineEdit" name="le_SV_24VKeepTime">
           <property name="text">
-           <string>0</string>
+           <string>350</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -715,14 +731,14 @@
         <item row="3" column="0">
          <widget class="QLabel" name="label_7">
           <property name="text">
-           <string>Max 시간</string>
+           <string>시린지 흡입시 솔벨브 O.T</string>
           </property>
          </widget>
         </item>
         <item row="3" column="1">
          <widget class="QLineEdit" name="le_SV_MaxTime">
           <property name="text">
-           <string>200</string>
+           <string>2000</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -744,7 +760,7 @@
        <rect>
         <x>500</x>
         <y>470</y>
-        <width>221</width>
+        <width>321</width>
         <height>111</height>
        </rect>
       </property>
@@ -756,7 +772,7 @@
         <rect>
          <x>30</x>
          <y>20</y>
-         <width>171</width>
+         <width>281</width>
          <height>80</height>
         </rect>
        </property>
@@ -764,7 +780,7 @@
         <item row="0" column="0">
          <widget class="QLabel" name="label_8">
           <property name="text">
-           <string>Pulse per Unit</string>
+           <string>Pulse per Unit_안씀</string>
           </property>
          </widget>
         </item>
@@ -781,7 +797,7 @@
         <item row="1" column="1">
          <widget class="QLineEdit" name="le_S_AspiSpeed">
           <property name="text">
-           <string>1</string>
+           <string>3000</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -791,14 +807,14 @@
         <item row="1" column="0">
          <widget class="QLabel" name="label_9">
           <property name="text">
-           <string>흡입 속도(ul/s)</string>
+           <string>시린지 속도</string>
           </property>
          </widget>
         </item>
         <item row="2" column="0">
          <widget class="QLabel" name="label_10">
           <property name="text">
-           <string>분주 속도(ul/s)</string>
+           <string>분주 속도(ul/s)_안씀</string>
           </property>
          </widget>
         </item>
@@ -864,7 +880,7 @@
        <item row="0" column="0">
         <widget class="QLabel" name="label_11">
          <property name="text">
-          <string>Arduino IO 갯수</string>
+          <string>Arduino IO 갯수_안씀</string>
          </property>
         </widget>
        </item>

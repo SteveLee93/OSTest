@@ -76,7 +76,7 @@ class Syringe():
                             O(3) = 시린지, 압력용기
         '''
         if(self.IsConnected() != True): return False
-
+        
         if value == 1:
             direction = 'I'
             self.Send(CMD_ROTATE_I)

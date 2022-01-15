@@ -133,7 +133,7 @@ void processCommand()
             {
               value = 0;
               {
-               if(SolMaxtime == 2000)
+               if(SolMaxtime >= 2000)
                {
                 delay(SolMaxtime);   //revalveoutputNum plus . lhj
                }

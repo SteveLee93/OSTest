@@ -44,7 +44,9 @@ class MainWindow(QMainWindow):
         self.ui.dial_Dir.valueChanged.connect(self.SP_ChangeDir)
         self.SetLineEditRange()
         self.ui.btn_SP_Aspi.clicked.connect(self.SP_Aspirate)
+        self.ui.btn_SP_AspiOnly.clicked.connect(self.SP_AspirateOnly)
         self.ui.btn_SP_Disp.clicked.connect(self.SP_Dispense)
+        self.ui.btn_SP_DispOnly.clicked.connect(self.SP_DispenseOnly)
         self.ui.btn_SP_Move.clicked.connect(self.SP_Move)
         self.ui.btn_Save.clicked.connect(self.SaveSetting)
         self.ui.btn_Load.clicked.connect(self.LoadSetting)
@@ -104,14 +106,13 @@ class MainWindow(QMainWindow):
                             pumpstate = Ardu.GetIOState(3).replace('\r\n','')
                             if pumpstate == '0':
                                 Ardu.SetOutput(3, False) # 펌프 Off
-                                time.sleep(0.5)
+                                time.sleep(0.2)
 
                         elif result == '1': # 센서 Off
                             pumpstate = Ardu.GetIOState(3).replace('\r\n','')
                             if pumpstate == '1':
                                 Ardu.SetOutput(3, True) # 펌프 On
                                 time.sleep(0.2)
-                                Ardu.SetOutput(3, False) # 펌프 Off
 
                     if result == '0': result = 'On'
                     elif result == '1': result = 'Off'
@@ -147,7 +148,7 @@ class MainWindow(QMainWindow):
         self.ui.le_SV_MaxTime.setValidator(QIntValidator(1,9999000))
         self.ui.le_S_AspiSpeed.setValidator(QIntValidator(1,9999))
         self.ui.le_S_DispSpeed.setValidator(QIntValidator(1,9999))
-        self.ui.le_S_PulseperUnit.setValidator(QIntValidator(1,9999))
+        # self.ui.le_S_PulseperUnit.setValidator(QIntValidator(0.0001,9999))
 
     def LoadConnectedPort(self):
         ports = serial.tools.list_ports.comports()
@@ -177,9 +178,9 @@ class MainWindow(QMainWindow):
         if SP.ChangeValveDir(1) == True:
             self.SP_UIChangeDirState(1)
         time.sleep(0.5)
-
         # 솔벨브 Time 조정.
-        Ardu.SetMaxTime('2000')
+        maxtime_sol = self.ui.le_SV_MaxTime.text()
+        Ardu.SetMaxTime(maxtime_sol)
         time.sleep(0.5)
 
         # 솔벨브 On > 자동 Off 됨.
@@ -187,39 +188,60 @@ class MainWindow(QMainWindow):
         Ardu.SetOutput(5, False)
 
         # 시린지 흡입
-        ul = int(self.ui.le_SP_Volume.text())
-        SP.ReMoveSyringe(ul)
+        ul = float(self.ui.le_SP_Volume.text()) * float(self.ui.le_S_PulseperUnit.text())
+        SP.ReMoveSyringe(int(ul))
+    
+    def SP_AspirateOnly(self):
+        # 시린지 방향 I로 변경
+        if SP.ChangeValveDir(1) == True:
+            self.SP_UIChangeDirState(1)
+        time.sleep(0.5)        
+        # 시린지 흡입
+        # ul = int(self.ui.le_SP_Volume.text())
+        # SP.ReMoveSyringe(ul)
+        ul = float(self.ui.le_SP_Volume.text()) * float(self.ui.le_S_PulseperUnit.text())
+        SP.ReMoveSyringe(int(ul))
         
     def SP_Dispense(self):
         # 시린지 방향 I로 변경
         if SP.ChangeValveDir(1) == True:
             self.SP_UIChangeDirState(1)
         time.sleep(0.5)
-
         # 솔벨브 Time 조정.
-        Ardu.SetMaxTime('2000')
+        maxtime_sol = self.ui.le_SV_MaxTime.text()
+        Ardu.SetMaxTime(maxtime_sol)
         time.sleep(0.5)
-
         # 솔벨브 On > 자동 Off 됨.
         # Ardu.SetOutput(4, True)
         Ardu.SetOutput(5, False)
         
         # 시린지 분주
-        ul = int(self.ui.le_SP_Volume.text()) * -1
-        SP.ReMoveSyringe(ul)
-
+        # ul = int(self.ui.le_SP_Volume.text()) * -1
+        # SP.ReMoveSyringe(ul)
+        ul = float(self.ui.le_SP_Volume.text()) * float(self.ui.le_S_PulseperUnit.text()) * -1
+        SP.ReMoveSyringe(int(ul))
+        
+    def SP_DispenseOnly(self):
+        # 시린지 방향 I로 변경
+        if SP.ChangeValveDir(1) == True:
+            self.SP_UIChangeDirState(1)
+        time.sleep(0.5)
+        # 시린지 분주
+        # ul = int(self.ui.le_SP_Volume.text()) * -1
+        # SP.ReMoveSyringe(ul)
+        ul = float(self.ui.le_SP_Volume.text()) * float(self.ui.le_S_PulseperUnit.text()) * -1
+        SP.ReMoveSyringe(int(ul))
+        
     def SP_Move(self):
         # 시린지 방향 I로 변경
         if SP.ChangeValveDir(1) == True:
             self.SP_UIChangeDirState(1)
         time.sleep(0.5)
-
         # 솔벨브 Time 조정.
-        Ardu.SetMaxTime('2000')
+        maxtime_sol = self.ui.le_SV_MaxTime.text()
+        Ardu.SetMaxTime(maxtime_sol)
         time.sleep(0.5)
-
         # 솔벨브 On > 자동 Off 됨.
-        # Ardu.SetOutput(4, True)
         Ardu.SetOutput(5, False)
 
         # 시린지 흡입 or 분주
@@ -229,14 +251,13 @@ class MainWindow(QMainWindow):
 
     def SP_SolValveDispense(self):
         # maxtime 설정.
-        maxtime_sol = self.ui.le_SV_MaxTime.text()
-        Ardu.SetMaxTime(maxtime_sol)
-
+        keeptime_sol = self.ui.le_SV_24VKeepTime.text()
+        Ardu.SetMaxTime(keeptime_sol)
+        time.sleep(0.5)
+        
         # 시린지 방향 B로 변경 파이펫 - 압력용기
-        value = self.ui.dial_Dir.value()
-        if value != 2:
-            if SP.ChangeValveDir(2) == True:
-                self.SP_UIChangeDirState(2)
+        if SP.ChangeValveDir(2) == True:
+            self.SP_UIChangeDirState(2)
         # 솔벨브 On > 자동 Off 됨.
         # Ardu.SetOutput(4, True)
         Ardu.SetOutput(5, False)
@@ -244,7 +265,7 @@ class MainWindow(QMainWindow):
 
     
     def SP_SetPulsePerUnit(self, pulseperunit):
-        SP.pulseperunit = int(pulseperunit)
+        SP.pulseperunit = float(pulseperunit)
 
     def SP_Connect(self):
         comport = self.ui.cb_SP_Comport.currentText()
@@ -257,11 +278,10 @@ class MainWindow(QMainWindow):
         # 시린지 방향 I로 변경
         if SP.ChangeValveDir(1) == True:
             self.SP_UIChangeDirState(1)
-        time.sleep(0.5)
 
         # 솔벨브 Time 조정.
-        Ardu.SetMaxTime('2000')
-        time.sleep(0.5)
+        maxtime_sol = self.ui.le_SV_MaxTime.text()
+        Ardu.SetMaxTime(maxtime_sol)
 
         # 솔벨브 On
         # Ardu.SetOutput(4, True)
@@ -272,8 +292,6 @@ class MainWindow(QMainWindow):
         time.sleep(1)
         self.SP_ChangeDir()
 
-        # 솔벨브 Off
-        Ardu.SetOutput(4, False)
 
     def SP_ChangeDir(self):
         value = self.ui.dial_Dir.value()
@@ -291,7 +309,7 @@ class MainWindow(QMainWindow):
         self.ui.lb_SP_TopState.setText('') # 압력용기
         self.ui.lb_SP_BottomState.setText('') # 시린지
         self.ui.lb_SP_LeftState.setText('') # 파이펫
-
+        self.ui.dial_Dir.setValue(value)
         if value == 1:
             dirstate = [False, True, True]
         elif value == 2:
